@@ -11,8 +11,10 @@
         student[5] = new Student("Генадий", "Н.П", "22ИТ35", new int[] { 3, 4, 5, 4, 4 });
         student[6] = new Student("Владимир", "П.В.", "22ИТ35", new int[] { 3, 2, 3, 1, 1 });
 
-        foreach(Student st in student) Console.WriteLine(st.Grade());
+        Console.WriteLine("До сортировки");
+        foreach (Student st in student) Console.WriteLine(st.Grade());
         student = ViborSort(student);
+        Console.WriteLine("После сортировки");
         foreach (Student st in student) Console.WriteLine(st.Grade());
     }
     static Student[] ViborSort(Student[] mas)
@@ -20,7 +22,6 @@
 
         for (int i = 0; i < mas.Length - 1; i++)
         {
-            //поиск минимального числа
             int min = i;
             for (int j = i + 1; j < mas.Length; j++)
             {
@@ -29,7 +30,6 @@
                     min = j;
                 }
             }
-            //обмен элементов
             Student temp = mas[min];
             mas[min] = mas[i];
             mas[i] = temp;
